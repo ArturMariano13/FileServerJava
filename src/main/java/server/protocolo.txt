@@ -1,0 +1,58 @@
+1. Login
+
+Descrição: Autentica o cliente para poder realizar operações restritas.
+Formato da Solicitação: LOGIN <username> <password>
+Formato da Resposta:
+
+    Sucesso: LOGIN_SUCCESS
+    Falha: LOGIN_FAILED
+
+2. Logout
+
+Descrição: Desconecta o cliente do servidor.
+Formato da Solicitação: LOGOUT
+Formato da Resposta:
+
+    Sucesso: LOGOUT_SUCCESS
+    Falha: LOGOUT_FAILED
+
+3. Upload
+
+Descrição: Envia um arquivo para o servidor, que o armazena com um nome exclusivo.
+Formato da Solicitação: UPLOAD <filename> <content>
+Formato da Resposta:
+
+    Sucesso: UPLOAD_SUCCESS
+    Falha: UPLOAD_FAILED <reason> (Ex: UPLOAD_FAILED File already exists)
+
+4. Search
+
+Descrição: Busca arquivos com base no nome ou conteúdo.
+Formato da Solicitação: SEARCH <type> <key>
+Onde:
+
+    <type> pode ser name (busca pelo nome do arquivo) ou content (busca pelo conteúdo).
+    <key> é o termo a ser buscado.
+
+Formato da Resposta:
+
+    Sucesso: SEARCH_RESULT <file1> <file2> ... <fileN>
+    Falha: SEARCH_FAILED <reason>
+
+5. Download
+
+Descrição: Permite que o cliente baixe o conteúdo de um arquivo específico.
+Formato da Solicitação: DOWNLOAD <filename>
+Formato da Resposta:
+
+    Sucesso: DOWNLOAD_SUCCESS <content>
+    Falha: DOWNLOAD_FAILED <reason> (Ex: DOWNLOAD_FAILED File not found)
+
+6. List
+
+Descrição: Retorna a lista de nomes de arquivos armazenados no servidor.
+Formato da Solicitação: LIST
+Formato da Resposta:
+
+    Sucesso: LIST_RESULT <file1> <file2> ... <fileN>
+    Falha: LIST_FAILED <reason>
